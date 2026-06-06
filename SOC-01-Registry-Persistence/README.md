@@ -1,43 +1,40 @@
 # SOC-01 Registry Persistence via Run Key
 
 ## Alert
-
 Registry Persistence Detected
 
-## Investigation Summary
+## MITRE ATT&CK Mapping
 
-A registry Run Key was created to achieve persistence using a hidden PowerShell command.
+| Technique | ID |
+|------------|------------|
+| Registry Run Keys / Startup Folder | T1547.001 |
+| PowerShell | T1059.001 |
 
-## Evidence Collected
+## Indicators of Compromise
 
-- Parent Process: cmd.exe
-- Child Process: reg.exe
-- Registry Path:
-  HKCU\Software\Microsoft\Windows\CurrentVersion\Run
-- Value Name:
-  Updater
-- Command:
-  powershell.exe -nop -w hidden
+| Indicator | Value |
+|------------|------------|
+| Registry Path | HKCU\Software\Microsoft\Windows\CurrentVersion\Run |
+| Registry Value | Updater |
+| Parent Process | cmd.exe |
+| Child Process | reg.exe |
+| PowerShell Flag | -nop |
+| PowerShell Flag | -w hidden |
 
-## MITRE ATT&CK
+## Evidence
 
-- T1547.001 Registry Run Keys / Startup Folder
+### Registry Creation
 
-## Timeline
+![Registry Creation](Evidence/Registry_Persistence_Creation.png)
 
-17:11:46 - Registry key created
+### Parent Child Relationship
 
-17:41:45 - Registry key removed
+![Parent Child](Evidence/Parent_Child_Relationship.png)
 
-## Response Actions
+### PowerShell Evasion Flags
 
-1. Preserve evidence
-2. Isolate system
-3. Remove malicious registry key
-4. Check additional persistence mechanisms
-5. Review network activity
-6. Escalate if required
+![PowerShell](Evidence/PowerShell_Evasion_Flags.png)
 
-## Lessons Learn
+### SPL Query
 
-Process logs can reveal registry persistence activity even when direct registry logging is unavailable.
+![SPL Query](Evidence/SPL-Query.png)
