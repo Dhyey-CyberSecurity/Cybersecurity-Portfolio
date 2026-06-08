@@ -49,15 +49,19 @@ index=* source="WinEventLog:Microsoft-Windows-Sysmon/Operational" "EventID>3<"
 
 ### Network Connection Event
 
-![Network Connection Event](Evidence/Network_Connection_Event.png)
+![Network Connection Event](Evidence/Event ID 3 detection.png)
 
 ### Destination IP Detection
 
-![Destination IP Detection](Evidence/Destination_IP_Detection.png)
+![Destination IP Detection](Evidence/DestinationIP_&_DestinationPort.png)
 
 ### SPL Query
 
-![SPL Query](Evidence/SPL-Query.png)
+![SPL Query](Evidence/Splunk-Query.png)
+
+### PowerShell Execution
+
+![PowerShell Execution](Evidence/PowerShell_Execution.png)
 
 ## Analyst Conclusion
 
